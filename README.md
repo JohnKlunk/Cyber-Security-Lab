@@ -113,3 +113,36 @@ except socket.error:
 
 print("-" * 50)
 print("Scan beendet.")
+
+### Learning & Fazit
+* **Verständnis:** Sockets sind die Basis jeder Netzwerkkommunikation. Tools wie Nmap automatisieren diesen Prozess.
+* **Protokoll-Unterschiede:** Protokolle müssen unterschiedlich behandelt werden (Passives Lauschen bei SSH vs. Aktives Abfragen bei HTTP).
+
+---
+
+## 💥 Phase 3: Exploitation of VSftpd 2.3.4 Backdoor
+
+* **Vulnerability:** Eine bösartige Code-Modifikation in der `vsftpd` Version 2.3.4 erlaubt unautorisierten Root-Zugriff.
+* **Trigger:** Senden eines Benutzernamens, der mit `:)` endet.
+* **Payload:** Der Server öffnet Port 6200 und bindet eine Root-Shell daran.
+* **Methode:** Manuelle Ausnutzung mittels `netcat` (ohne Metasploit Framework), um Verständnis für den zugrundeliegenden TCP-Socket-Mechanismus zu demonstrieren.
+* **Post-Exploitation:** Upgrade der Raw-Shell zu einer interaktiven TTY-Shell mittels Python (`pty` Modul), um Befehle wie `su` oder Texteditoren nutzen zu können.
+
+---
+
+## 🚨 Phase 4: Threat Detection Engineering
+
+
+
+Aufbau einer Client-Server-Architektur für Security Monitoring.
+
+* **Wazuh Manager (Server):** Sammelt, analysiert und alarmiert.
+* **Wazuh Agent (Endpoint):** Sammelt Logs (System, Auth, Audit) und schickt sie verschlüsselt (Port 1514) zum Manager.
+
+### Use Case: Lateral Movement Detection
+* **Szenario:** Erkennung eines Legacy-Exploits (VSFTPD Backdoor) im internen Netzwerk.
+* **Implementierung:**
+  * **Sensor:** Suricata IDS auf der Kali-Angriffsmaschine (Simulation eines kompromittierten Insiders).
+  * **Log-Shipping:** Wazuh Agent liest Suricata `eve.json` aus.
+  * **SIEM:** Wazuh Manager korreliert die Logs.
+* **Ergebnis:** Erfolgreiche Detektion der Signatur `ET EXPLOIT vsftpd 2.3.4 Backdoor`.
