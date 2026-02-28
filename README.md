@@ -112,7 +112,8 @@ except socket.error:
     sys.exit()
 
 print("-" * 50)
-print("Scan beendet.")
+print("Scan beendet."
+```
 
 ### Learning & Fazit
 * **Verständnis:** Sockets sind die Basis jeder Netzwerkkommunikation. Tools wie Nmap automatisieren diesen Prozess.
