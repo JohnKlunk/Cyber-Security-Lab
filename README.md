@@ -1,11 +1,11 @@
-# 🛡️ Full-Stack Security Lab: Infrastructure, Exploitation & Detection
+# Full-Stack Security Lab: Infrastructure, Exploitation & Detection
 
-## 📖 Projektübersicht
+## Projektübersicht
 Dieses Projekt demonstriert den Aufbau und Betrieb eines isolierten Cyber-Security-Labors. Es umfasst die vollständige Pipeline von der sicheren Netzwerkinfrastruktur über benutzerdefinierte Aufklärungstools und manuelle Exploitation bis hin zur Implementierung eines SIEM-Systems zur Bedrohungserkennung.
 
 ---
 
-## 🏗️ Phase 1: Infrastructure & Network Segmentation
+## Phase 1: Infrastructure & Network Segmentation
 
 
 
@@ -43,7 +43,7 @@ Die OPNsense-Firewall dient als Netzwerk-Gateway und Sicherheits-Perimeter für 
 
 ---
 
-## 🔍 Phase 2: Custom Python Network Scanner & Service Identification
+## Phase 2: Custom Python Network Scanner & Service Identification
 
 ### Projektziel
 Entwicklung eines eigenen Netzwerk-Scanners in Python, um die Funktionsweise von TCP-Handshakes und Socket-Programmierung auf Low-Level-Ebene zu verstehen. Ziel war es, offene Ports zu finden und die dahinterliegenden Dienste durch "Banner Grabbing" zu identifizieren.
@@ -121,7 +121,7 @@ print("Scan beendet."
 
 ---
 
-## 💥 Phase 3: Exploitation of VSftpd 2.3.4 Backdoor
+## Phase 3: Exploitation of VSftpd 2.3.4 Backdoor
 
 * **Vulnerability:** Eine bösartige Code-Modifikation in der `vsftpd` Version 2.3.4 erlaubt unautorisierten Root-Zugriff.
 * **Trigger:** Senden eines Benutzernamens, der mit `:)` endet.
@@ -131,7 +131,7 @@ print("Scan beendet."
 
 ---
 
-## 🚨 Phase 4: Threat Detection Engineering
+## Phase 4: Threat Detection Engineering
 
 
 
